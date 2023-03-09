@@ -27,6 +27,7 @@ body {
 .img-wrapper {
     height: 100%;
     display: none;
+    position: relative;
 }
 
 .show {
@@ -62,4 +63,12 @@ body {
 
 #prev {
     bottom: 10px;
+}
+
+.text-wrapper {
+    position: absolute;
+    text-align: right;
+    bottom: 10px;
+    right: 10px;
+    color: white;
 }
