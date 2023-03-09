@@ -27,6 +27,9 @@ const imageList = document.querySelector(".image-list");
 const next = document.querySelector("#next");
 const prev = document.querySelector("#prev");
 
+const imgs = document.getElementsByClassName("img-slider");
+
+
 let slider = "";
 
 for(let i = 0; i < images.length; i++) {
@@ -43,36 +46,38 @@ for(let i = 0; i < images.length; i++) {
 imageList.innerHTML = slider
 
 const imgWrapper = document.getElementsByClassName("img-wrapper");
-
 let active = 0;
 
 imgWrapper[active].classList.add('show');
 
 next.addEventListener('click', function() {
 
-       
+    imgs[active].classList.remove('active')
     imgWrapper[active].classList.remove('show');
 
-    if (active == images.length - 1) {
-        active = 0;
+
+    if(active == 0) {
+        active = images.length - 1;
     } else {
-        active++;
+        active--;
     }
 
     imgWrapper[active].classList.add('show');
-
+    imgs[active].classList.add('active')
 
 });
 
 prev.addEventListener('click', function() {
 
     imgWrapper[active].classList.remove('show');
-    if(active == 0) {
-        active = images.length - 1;
+    imgs[active].classList.remove('active')
+   
+    if (active == images.length - 1) {
+        active = 0;
     } else {
-        active--;
+        active++;
     }
     imgWrapper[active].classList.add('show');
-
+    imgs[active].classList.add('active')
 
 });
